@@ -24,3 +24,13 @@ class Action(models.Model):
     date_to = models.DateTimeField()
     phone_number = models.CharField(max_length=20)
     image = models.ImageField()
+
+
+class Event(models.Model):
+    title = models.CharField(max_length=50)
+    place = models.ForeignKey(Service)
+    date = models.DateTimeField()
+    phone_number = models.CharField(max_length=20)
+    price = models.CharField(max_length=40)
+
+
