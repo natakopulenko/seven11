@@ -19,7 +19,7 @@ class Service(models.Model):
     description = models.TextField()
     information = models.TextField()
     site = models.URLField(max_length=200)
-    mark = models.DecimalField(max_digits=3, decimal_places=2)    address = models.CharField(max_length=100)
+    mark = models.DecimalField(max_digits=3, decimal_places=2)
 
 
 class Action(models.Model):
