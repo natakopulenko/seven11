@@ -20,6 +20,17 @@ class Service(models.Model):
     information = models.TextField()
     site = models.URLField(max_length=200)
     mark = models.DecimalField(max_digits=3, decimal_places=2)
+    tags = models.ManyToManyField(Tag)
+    video = models.URLField(max_length=200)
+
+
+class ServicePhotos(models.Model):
+    photo = models.ImageField(upload_to='source/images')
+    service = models.ForeignKey(Service)
+
+
+class Tag(models.Model):
+    title = models.CharField()
 
 
 class ActionType(models.Model):
