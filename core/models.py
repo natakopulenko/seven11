@@ -51,6 +51,10 @@ class Action(models.Model):
     image = models.ImageField()
 
 
+class EventType(models.Model):
+    title = models.CharField(max_length=100)
+
+
 class Event(models.Model):
     title = models.CharField(max_length=50)
     place = models.ForeignKey(Service)
@@ -59,6 +63,7 @@ class Event(models.Model):
     price = models.CharField(max_length=40)
     announcement = models.TextField()
     description = models.TextField(blank=True, null=True)
+    type = models.ForeignKey(EventType, blank=True, null=True)
 
 
 class Goods(models.Model):
