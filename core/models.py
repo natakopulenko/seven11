@@ -22,7 +22,12 @@ class Service(models.Model):
     mark = models.DecimalField(max_digits=3, decimal_places=2)
 
 
+class ActionType(models.Model):
+    title = models.CharField(max_length=40)
+
+
 class Action(models.Model):
+    type = models.ForeignKey(ActionType)
     title = models.CharField(max_length=50)
     place = models.ForeignKey(Service)
     date_from = models.DateTimeField()
@@ -35,7 +40,7 @@ class Event(models.Model):
     title = models.CharField(max_length=50)
     place = models.ForeignKey(Service)
     date = models.DateTimeField()
-    phone_number = models.CharField(max_length=20)
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
     price = models.CharField(max_length=40)
-
-
+    announcement = models.TextField()
+    description = models.TextField(blank=True, null=True)
