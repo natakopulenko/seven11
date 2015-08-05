@@ -15,3 +15,12 @@ class Service(models.Model):
     title = models.CharField(max_length=50)
     type = models.ForeignKey(ServiceType)
     address = models.CharField(max_length=100)
+
+
+class Action(models.Model):
+    title = models.CharField(max_length=50)
+    place = models.ForeignKey(Service)
+    date_from = models.DateTimeField()
+    date_to = models.DateTimeField()
+    phone_number = models.CharField(max_length=20)
+    image = models.ImageField()
