@@ -55,3 +55,12 @@ class Event(models.Model):
     price = models.CharField(max_length=40)
     announcement = models.TextField()
     description = models.TextField(blank=True, null=True)
+
+
+class Goods(models.Model):
+    title = models.CharField(max_length=50)
+    price = models.DecimalField()
+    service_type = models.ManyToManyField(ServiceType)
+    number = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    availability = models.BooleanField(default=True)
