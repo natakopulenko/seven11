@@ -1,0 +1,64 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html ng-app="pages.main">
+<head lang="uk">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <title></title>
+
+    <link rel="stylesheet" href="{% static "build/styles/landing/base.min.css" %}"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="{% static "build/libraries/materialize.min.js" %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.min.js"></script>
+
+
+
+</head>
+<body ng-controller="ApplicationController">
+
+ <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">SEVEN ELEVEN</a>
+      <ul class="right hide-on-med-and-down" >
+          <li><a ng-href="#!/">Отдых</a></li>
+          <li><a ng-href="#!/">Блог</a></li>
+          <li><a ng-href="#!/">Фотоотчеты</a></li>
+          <li><a ng-href="#!/">Акции</a></li>
+          <li><a ng-href="#!">Магазин</a></li>
+              </ul>
+      <ul id="nav-mobile" class="side-nav">
+          <li><a ng-href="#!/">Отдых</a></li>
+          <li><a ng-href="#!/">Блог</a></li>
+          <li><a ng-href="#!/">Фотоотчеты</a></li>
+          <li><a ng-href="#!/">Акции</a></li>
+          <li><a ng-href="#!">Магазин</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse" side-nav><i class="material-icons">menu</i></a>
+    </div>
+
+  </nav>
+
+  <ng-view></ng-view>
+
+
+    <!--  Scripts-->
+    {# App / Config #}
+    <script src="{% static "source/scripts/landing/app.module.js" %}"></script>
+
+    {# Services #}
+
+
+
+    {# Directives #}
+    <script src="{% static "source/scripts/landing/directives/sidenav.directive.js" %}"></script>
+
+    {# Controllers #}
+    <script src="{% static "source/scripts/landing/controllers/application.controller.js" %}"></script>
+
+
+
+</body>
+</html>
