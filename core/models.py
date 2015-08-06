@@ -20,7 +20,7 @@ class Service(models.Model):
     information = models.TextField()
     site = models.URLField(max_length=200)
     mark = models.DecimalField(max_digits=3, decimal_places=2)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField('Tag')
     schedule = models.TextField()
 
 
@@ -34,7 +34,7 @@ class ServiceVideos(models.Model):
 
 
 class Tag(models.Model):
-    title = models.CharField()
+    title = models.CharField(max_length=100)
 
 
 class ActionType(models.Model):
@@ -68,7 +68,7 @@ class Event(models.Model):
 
 class Goods(models.Model):
     title = models.CharField(max_length=50)
-    price = models.DecimalField()
+    price = models.DecimalField(max_digits=7, decimal_places=2)
     service_type = models.ManyToManyField(ServiceType)
     number = models.IntegerField()
     description = models.TextField(blank=True, null=True)

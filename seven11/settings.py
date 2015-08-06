@@ -37,6 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_auth',
+
+    'core',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -106,3 +109,29 @@ STATICFILES_FINDERS = (
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/static/'
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.open_id.OpenIdAuth',
+    'social_auth.backends.contrib.vk.VKOAuth2Backend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.request',
+    'social_auth.context_processors.social_auth_by_name_backends',
+)
+
+VK_APP_ID = '5022839'
+VKONTAKTE_APP_ID = VK_APP_ID
+VK_API_SECRET = 'DtmFhjqWOdGhthIXseRI'
+VKONTAKTE_APP_SECRET = VK_API_SECRET
+
+SOCIAL_AUTH_PROVIDERS = [
+    {'id': p[0], 'name': p[1], 'position': {'width': p[2][0], 'height': p[2][1], }}
+    for p in (
+        ('vk-oauth', u'Login via VK', (0, 0)),
+
+    )
+]
+

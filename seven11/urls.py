@@ -18,6 +18,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('social_auth.urls')),
     url(r'^$', 'core.views.home'),
+    url(r'^login/', 'core.views.login'),
     url(r'^ajax/templates/landing/', 'core.views.landing'),
+    url(r'^accounts/profile/', 'core.views.logged')
 ]
