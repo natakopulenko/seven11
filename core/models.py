@@ -73,3 +73,8 @@ class Goods(models.Model):
     number = models.IntegerField()
     description = models.TextField(blank=True, null=True)
     availability = models.BooleanField(default=True)
+
+
+class BlogCategory(models.Model):
+    title = models.CharField(max_length=100)
+    number_of_posts = models.IntegerField()

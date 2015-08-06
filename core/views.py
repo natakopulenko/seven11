@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.template.loader import get_template
-from django.contrib.auth.decorators import login_required
 
 
 def login(request):
@@ -15,7 +14,7 @@ def home(request):
 
 def landing(request):
     template = get_template('pages/landing.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({'video': 'https://www.youtube.com/embed/UK6eZauLK9o'}))
 
 
 def logged(request):
