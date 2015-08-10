@@ -20,3 +20,8 @@ def landing(request):
 def logged(request):
     template = get_template('pages/logged.html')
     return HttpResponse(template.render({'user': request.user}))
+
+
+def blog(request):
+    template = get_template('pages/blog.html')
+    return HttpResponse(template.render())

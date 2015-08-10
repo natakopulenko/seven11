@@ -16,6 +16,9 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/', {
             templateUrl: 'ajax/templates/landing/'
         })
+        .when('/blog/', {
+            templateUrl: 'ajax/templates/blog/'
+        })
         .when('/login/', {
             templateUrl: 'login/'
         });

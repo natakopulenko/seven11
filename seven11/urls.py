@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from apps.service.ajax import *
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -22,5 +23,8 @@ urlpatterns = [
     url(r'^$', 'core.views.home'),
     url(r'^login/', 'core.views.login'),
     url(r'^ajax/templates/landing/', 'core.views.landing'),
-    url(r'^accounts/profile/', 'core.views.logged')
+    url(r'^ajax/templates/blog/', 'core.views.blog'),
+    url(r'^accounts/profile/', 'core.views.logged'),
+
+    url(r'^api/v1/blog/$', BlogView.as_view()),
 ]

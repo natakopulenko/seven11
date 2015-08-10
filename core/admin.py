@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-from core.models import Category, ServiceType, Service, ServicePhotos, ServiceVideos, Tag, ActionType, EventType, \
-    PostText, PostImage, Post, BlogCategory, Goods, Action, Event
+from core.models import *
 from django.contrib import admin
 from django.contrib.admin.sites import AdminSite
 
@@ -20,4 +19,5 @@ admin.site.register(Goods)
 admin.site.register(BlogCategory)
 admin.site.register(Post)
 admin.site.register(PostImage)
-admin.site.register(PostText )
+admin.site.register(PostText)
+admin.site.register(PostSubtitle)

@@ -90,11 +90,17 @@ class Post(models.Model):
 
 class PostImage(models.Model):
     post = models.ForeignKey(Post)
-    image = models.ImageField
+    image = models.ImageField()
     time_of_adding = models.DateTimeField()
 
 
 class PostText(models.Model):
     post = models.ForeignKey(Post)
     text = models.TextField()
+    time_of_adding = models.DateTimeField()
+
+
+class PostSubtitle(models.Model):
+    post = models.ForeignKey(Post)
+    subtitle = models.CharField(max_length=500)
     time_of_adding = models.DateTimeField()
