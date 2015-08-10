@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^accounts/profile/', 'core.views.logged'),
 
     url(r'^api/v1/blog/$', BlogView.as_view()),
+    url(r'^api/v1/posts/(\d+)/$', PostView.as_view()),
 ]

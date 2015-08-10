@@ -27,6 +27,29 @@ class BlogView(View):
         return self.PostCodes.ok(posts)
 
 
+class PostView(View):
+    class PostCodes(object):
+        @classmethod
+        def invalid_parameter(cls, parameter_name):
+            return HttpResponseBadRequest('parameter {0} is invalid'.format(parameter_name))
+
+        @classmethod
+        def ok(cls, post):
+            return JsonResponse({'code': 0,
+                                 'message': 'OK',
+                                 'data': {
+                                     'title': post.title,
+                                     'category': post.category.title,
+                                     'id': post.id,
+                                     'image': post.main_image.url,
+                                 }
+                                 })
+
+    def get(self, request, post_id):
+        post = Post.objects.get(id=post_id)
+        return self.PostCodes.ok(post)
+
+
 class CategoryView(View):
     def get(self, request):
         categories = Category.objects.all()
