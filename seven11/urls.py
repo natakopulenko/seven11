@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^login/', 'core.views.login'),
     url(r'^ajax/templates/landing/', 'core.views.landing'),
     url(r'^ajax/templates/blog/', 'core.views.blog'),
+    url(r'^ajax/templates/post/', 'core.views.post'),
     url(r'^accounts/profile/', 'core.views.logged'),
 
     url(r'^api/v1/blog/$', BlogView.as_view()),

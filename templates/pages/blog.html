@@ -5,13 +5,15 @@
             <div>
     <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="{% static "source/images/83580645.png" %}" height="50%">
+          <img src='[[ post.image ]]' height="50%">
+           <span class="card-title">[[ post.category ]]</span>
         </div>
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">[[ post.title ]]<i class="right material-icons">more_vert</i></span>
-          <p><a ng-href="#!/">[[ post.category ]]</a></p>
+          <p class="card-title grey-text text-darken-4">[[ post.title ]]</p>
         </div>
-
+        <div class="card-action">
+            <a ng-href="#!/blog/posts/post[[ post.id ]]/">Детальніше</a>
+        </div>
       </div>
 </div>
     </div>

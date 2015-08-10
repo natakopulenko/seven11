@@ -25,3 +25,8 @@ def logged(request):
 def blog(request):
     template = get_template('pages/blog.html')
     return HttpResponse(template.render())
+
+
+def post(request):
+    template = get_template('pages/post.html')
+    return HttpResponse(template.render())

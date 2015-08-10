@@ -102,13 +102,13 @@ USE_TZ = True
 
 STATIC_URL = 'http://127.0.0.1/seven11_static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-
+STATIC_ROOT = "http://127.0.0.1/seven11_static/"
 STATICFILES_FINDERS = (
      "django.contrib.staticfiles.finders.FileSystemFinder",
      "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 )
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_URL = '/static/'
+MEDIA_URL = 'http://127.0.0.1/seven11_static/images/'
 
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.contrib.vk.VKOAuth2Backend',

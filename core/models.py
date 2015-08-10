@@ -85,7 +85,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     publication_time = models.DateTimeField()
     number_of_comments = models.IntegerField()
-    main_image = models.ImageField(upload_to='source/images')
+    main_image = models.ImageField(upload_to=MEDIA)
 
 
 class PostImage(models.Model):

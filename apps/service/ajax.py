@@ -19,6 +19,7 @@ class BlogView(View):
                                      'title': post.title,
                                      'category': post.category.title,
                                      'id': post.id,
+                                     'image': post.main_image.url,
                                  } for post in posts]})
 
     def get(self, request):
@@ -29,7 +30,7 @@ class BlogView(View):
 class CategoryView(View):
     def get(self, request):
         categories = Category.objects.all()
-        respponse = {
+        response = {
             'code': 0,
             'message': 'OK',
             'data': [{
@@ -37,4 +38,4 @@ class CategoryView(View):
                 'name': category.title
             } for category in categories]
         }
-        return JsonResponse(respponse, safe=False)
+        return JsonResponse(response, safe=False)
