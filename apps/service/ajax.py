@@ -24,3 +24,17 @@ class BlogView(View):
     def get(self, request):
         posts = Post.objects.all()
         return self.PostCodes.ok(posts)
+
+
+class CategoryView(View):
+    def get(self, request):
+        categories = Category.objects.all()
+        respponse = {
+            'code': 0,
+            'message': 'OK',
+            'data': [{
+                'id': category.id,
+                'name': category.title
+            } for category in categories]
+        }
+        return JsonResponse(respponse, safe=False)
