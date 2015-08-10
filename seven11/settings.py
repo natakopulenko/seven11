@@ -111,7 +111,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/static/'
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.open_id.OpenIdAuth',
     'social_auth.backends.contrib.vk.VKOAuth2Backend',
     'django.contrib.auth.backends.ModelBackend',
 )
