@@ -78,3 +78,23 @@ class Goods(models.Model):
 class BlogCategory(models.Model):
     title = models.CharField(max_length=100)
     number_of_posts = models.IntegerField()
+
+
+class Post(models.Model):
+    category = models.ForeignKey(BlogCategory)
+    title = models.CharField(max_length=200)
+    publication_time = models.DateTimeField()
+    number_of_comments = models.IntegerField()
+    main_image = models.ImageField(upload_to='source/images')
+
+
+class PostImage(models.Model):
+    post = models.ForeignKey(Post)
+    image = models.ImageField
+    time_of_adding = models.DateTimeField()
+
+
+class PostText(models.Model):
+    post = models.ForeignKey(Post)
+    text = models.TextField()
+    time_of_adding = models.DateTimeField()
