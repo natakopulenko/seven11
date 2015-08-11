@@ -1,7 +1,11 @@
 {% load staticfiles %}
 <div ng-controller="PostController">
     <div class="row">
-
-
+        <div class="center-align">[[ post.title ]]</div>
+        <div ng-repeat="item in post.items">
+            <div>[[item.text]]</div>
+            <img src="[[ item.image ]]" alt=""/>
+            <h3>[[ item.subtitle ]]</h3>
+        </div>
     </div>
 </div>
