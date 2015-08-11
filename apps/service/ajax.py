@@ -98,7 +98,7 @@ class CategoryView(View):
             'message': 'OK',
             'data': [{
                 'id': category.id,
-                'name': category.title
+                'title': category.title
             } for category in categories]
         }
         return JsonResponse(response, safe=False)
