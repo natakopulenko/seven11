@@ -101,4 +101,4 @@ class ServiceTypeView(View):
                 'title': servicetype.title
             }for servicetype in servicetypes]
         }
-        return JsonResponse(response, safe=False)        return JsonResponse(response, safe=False)
+        return JsonResponse(response, safe=False)
