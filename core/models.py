@@ -91,7 +91,7 @@ class Post(models.Model):
 
 class PostImage(models.Model):
     post = models.ForeignKey(Post)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/')
     time_of_adding = models.DateTimeField()
 
 

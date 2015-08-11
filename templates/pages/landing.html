@@ -1,9 +1,10 @@
    <div ng-controller="CategoryController">
 
-
-   <ul>
-       <li ng-repeat = "category in categories" >[[category.title]] </li>
-   </ul>
+<div class="row">
+   <ul class="col m2">
+       <li ng-repeat = "category in categories" ng-mouseenter="get_services([[category.id]])" ng-mouseleave="clear_services()">[[category.title]] </li>
+       <div ng-repeat="service in servicetypes" ng-if="servicetypes.length">[[ service.title ]]</div>
+   </ul></div>
  </div>
     <div class="row">
         <div class="col m6">

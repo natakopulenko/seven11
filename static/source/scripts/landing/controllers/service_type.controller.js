@@ -3,13 +3,13 @@ angular.module('pages.main').controller('ServiceTypeController', ['$scope','Util
 
 
 
-        $scope.$watch(function(newValue) {
-            if (newValue !== null) {
-                utilsService.getServiceType( function(response) {
+        $scope.get_services= function(category_id) {
+
+                utilsService.getServiceType(category_id, function(response) {
                     $scope.servicetypes = response.data;
                 });
-            }
-        });
+
+        };
 
     }
 ]);
