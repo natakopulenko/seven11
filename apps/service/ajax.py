@@ -74,6 +74,22 @@ class PostView(View):
                 for text_item in texts:
                     text = text_item.text
 
+            images = post_images.filter(time_of_adding=time)
+            if images is not None:
+                for image_item in images:
+                    image = image_item.image.url
+            subtitles = post_subtitles.filter(time_of_adding=time)
+            if subtitles is not None:
+                for subtitle_item in subtitles:
+                    subtitle = subtitle_item.subtitle
+            items.append({
+                'image': image,
+                'text': text,
+                'subtitle': subtitle,
+            })
+        return self.PostCodes.ok(post, items)
+
+
 
 
 class CategoryView(View):

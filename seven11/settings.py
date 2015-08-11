@@ -125,12 +125,3 @@ VK_APP_ID = '5022839'
 VKONTAKTE_APP_ID = VK_APP_ID
 VK_API_SECRET = 'DtmFhjqWOdGhthIXseRI'
 VKONTAKTE_APP_SECRET = VK_API_SECRET
-
-SOCIAL_AUTH_PROVIDERS = [
-    {'id': p[0], 'name': p[1], 'position': {'width': p[2][0], 'height': p[2][1], }}
-    for p in (
-        ('vk-oauth', u'Login via VK', (0, 0)),
-
-    )
-]
-
