@@ -62,3 +62,17 @@ class CategoryView(View):
             } for category in categories]
         }
         return JsonResponse(response, safe=False)
+
+
+class ServiceTypeView(View):
+    def get(self, request, id_category):
+        servicetypes = ServiceType.objects.filter(category=id_category)
+        response = {
+            'code': 0,
+            'message': 'OK',
+            'data': [{
+                'id': servicetype.id,
+                'title': servicetype.title
+            }for servicetype in servicetypes]
+        }
+        return JsonResponse(response, safe=False)
