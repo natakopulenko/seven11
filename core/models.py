@@ -83,7 +83,7 @@ class BlogCategory(models.Model):
 class Post(models.Model):
     category = models.ForeignKey(BlogCategory)
     title = models.CharField(max_length=200)
-    publication_time = models.DateTimeField()
+    publication_time = models.DateTimeField(auto_now_add=True)
     number_of_comments = models.IntegerField()
     main_image = models.ImageField(upload_to='images/')
     description = models.TextField()
@@ -92,16 +92,16 @@ class Post(models.Model):
 class PostImage(models.Model):
     post = models.ForeignKey(Post)
     image = models.ImageField(upload_to='images/')
-    time_of_adding = models.DateTimeField()
+    time_of_adding = models.DateTimeField(auto_now_add=True)
 
 
 class PostText(models.Model):
     post = models.ForeignKey(Post)
     text = models.TextField()
-    time_of_adding = models.DateTimeField()
+    time_of_adding = models.DateTimeField(auto_now_add=True)
 
 
 class PostSubtitle(models.Model):
     post = models.ForeignKey(Post)
     subtitle = models.CharField(max_length=500)
-    time_of_adding = models.DateTimeField()
+    time_of_adding = models.DateTimeField(auto_now_add=True)

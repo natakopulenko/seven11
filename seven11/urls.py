@@ -27,6 +27,8 @@ urlpatterns = [
     url(r'^ajax/templates/blog/', 'core.views.blog'),
     url(r'^ajax/templates/post/', 'core.views.post'),
     url(r'^accounts/profile/', 'core.views.logged'),
+    url(r'^ajax/templates/vacation/', 'core.views.vacation'),
+
     url(r'^api/v1/blog/$', BlogView.as_view()),
     url(r'^api/v1/category/$', CategoryView.as_view()),
     url(r'^api/v1/category/(\d+)/$', ServiceTypeView.as_view()),

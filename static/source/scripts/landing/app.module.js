@@ -19,6 +19,9 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/blog/', {
             templateUrl: 'ajax/templates/blog/'
         })
+        .when('/vacation/', {
+            templateUrl: 'ajax/templates/vacation/'
+        })
         .when('/blog/posts/post:postId/', {
             templateUrl: 'ajax/templates/post/'
         })

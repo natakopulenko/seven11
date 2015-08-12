@@ -30,3 +30,8 @@ def blog(request):
 def post(request):
     template = get_template('pages/post.html')
     return HttpResponse(template.render())
+
+
+def vacation(request):
+    template = get_template('pages/vacation.html')
+    return HttpResponse(template.render())

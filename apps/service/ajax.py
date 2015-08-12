@@ -90,8 +90,6 @@ class PostView(View):
         return self.PostCodes.ok(post, items)
 
 
-
-
 class CategoryView(View):
     def get(self, request):
         categories = Category.objects.all()
@@ -108,13 +106,13 @@ class CategoryView(View):
 
 class ServiceTypeView(View):
     def get(self, request, id_category):
-        servicetypes = ServiceType.objects.filter(category=id_category)
+        service_types = ServiceType.objects.filter(category=id_category)
         response = {
             'code': 0,
             'message': 'OK',
             'data': [{
-                'id': servicetype.id,
-                'title': servicetype.title
-            }for servicetype in servicetypes]
+                'id': service_type.id,
+                'title': service_type.title
+            }for service_type in service_types]
         }
         return JsonResponse(response, safe=False)
