@@ -40,3 +40,18 @@ def albums(request):
 def vacation(request):
     template = get_template('pages/vacation.html')
     return HttpResponse(template.render())
+
+
+def category(request):
+    template = get_template('pages/category.html')
+    return HttpResponse(template.render())
+
+
+def service_type(request):
+    template = get_template('pages/service_type.html')
+    return HttpResponse(template.render())
+
+
+def service(request):
+    template = get_template('pages/service.html')
+    return HttpResponse(template.render())

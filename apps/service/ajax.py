@@ -90,7 +90,7 @@ class PostView(View):
         return self.PostCodes.ok(post, items)
 
 
-class CategoryView(View):
+class CategoriesView(View):
     def get(self, request):
         categories = Category.objects.all()
         response = {
@@ -98,7 +98,8 @@ class CategoryView(View):
             'message': 'OK',
             'data': [{
                 'id': category.id,
-                'title': category.title
+                'title': category.title,
+                'slug': category.slug,
             } for category in categories]
         }
         return JsonResponse(response, safe=False)
@@ -134,3 +135,80 @@ class AlbumView(View):
             }for album in albums]
         }
         return JsonResponse(response, safe=False)
+
+
+class CategoryView(View):
+    def get(self, request, category_slug):
+        category = Category.objects.get(slug=category_slug)
+        service_types = ServiceType.objects.filter(category=category.id)
+        response = {
+            'code': 0,
+            'message': 'OK',
+            'data': [{
+                'id': service_type.id,
+                'title': service_type.title,
+                'services': [{
+                    'id': service.id,
+                    'title': service.title,
+                    'address': service.address,
+                    'mark': service.mark,
+                }for service in Service.objects.filter(type=service_type.id)[0:10]]
+            }for service_type in service_types]
+        }
+        return JsonResponse(response, safe=False)
+
+
+class ServicesByTypeView(View):
+    class PostCodes(object):
+        @classmethod
+        def invalid_parameter(cls, parameter_name):
+            return HttpResponseBadRequest('parameter {0} is invalid'.format(parameter_name))
+
+        @classmethod
+        def ok(cls, type, services):
+            return JsonResponse({'code': 0,
+                                 'message': 'OK',
+                                 'type': type.title,
+                                 'data': [{
+                                     'id': service.id,
+                                     'title': service.title,
+                                     'address': service.address,
+                                     'mark': service.mark,
+                                 } for service in services]})
+
+    def get(self, request, service_type_id):
+        services = Service.objects.filter(type=service_type_id)
+        service_type = ServiceType.objects.get(id=service_type_id)
+        return self.PostCodes.ok(service_type, services)
+
+
+class ServiceView(View):
+    class PostCodes(object):
+        @classmethod
+        def invalid_parameter(cls, parameter_name):
+            return HttpResponseBadRequest('parameter {0} is invalid'.format(parameter_name))
+
+        @classmethod
+        def ok(cls, service):
+            return JsonResponse({'code': 0,
+                                 'message': 'OK',
+                                 'data': {
+                                     'title': service.title,
+                                     'type': service.type.title,
+                                     'id': service.id,
+                                     'address': service.address,
+                                     'phone_number': service.phone_number,
+                                     'description': service.description,
+                                     'information': service.information,
+                                     'site': service.site,
+                                     'mark': service.mark,
+                                     'schedule': service.schedule,
+                                     'tags': [{
+                                         'title': tag.title,
+                                     }for tag in service.tags.all()]
+                                 },
+                                 })
+
+    def get(self, request, service_id):
+        service = Service.objects.get(id=service_id)
+        return self.PostCodes.ok(service)

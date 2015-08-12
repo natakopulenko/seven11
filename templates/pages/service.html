@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<div ng-controller="ServiceController">
+    <h3 class="center-align">[[ service.title ]]</h3>
+    <div ng-repeat="tag in service.tags">[[ tag.title ]]</div>
+    <p>Тип: [[ service.type ]]</p>
+    <p>Адреса: [[ service.address ]]</p>
+    <p>Номер: [[ service.phone_number ]]</p>
+    <p>Сайт: <a href="[[ service.site ]]">[[ service.site ]]</a></p>
+    <p>Оцінка: [[ service.mark ]]</p>
+    <p>Опис: [[ service.description ]]</p>
+    <p>Офіційна інфа: [[ service.information ]]</p>
+    <div>Розклад</div>
+    <p>[[ service.schedule ]]</p>
+</div>

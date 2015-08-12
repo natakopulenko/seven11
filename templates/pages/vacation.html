@@ -1,8 +1,8 @@
-   <div ng-controller="CategoryController">
+   <div ng-controller="CategoriesController">
 
 <div class="row">
-   <ul class="col m2">
-       <li ng-repeat = "category in categories" ng-mouseenter="get_services([[category.id]])" ng-mouseleave="clear_services()">[[category.title]] </li>
-       <div ng-repeat="service in servicetypes" ng-if="servicetypes.length">[[ service.title ]]</div>
+   <ul class="float-right">
+       <li  class="col m2" ng-repeat = "category in categories" ng-mouseenter="get_services([[category.id]])" ><!--ng-mouseleave="clear_services()"-->
+           <a href="#!/categories/[[ category.slug ]]">[[category.title]]</a></li>
    </ul></div>
- </div>
+ <div ng-repeat="service_type in servicetypes" ng-if="servicetypes.length"><a href="#!/service_type/[[ service_type.id ]]/services">[[ service_type.title ]]</a></div></div>

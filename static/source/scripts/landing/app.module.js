@@ -22,8 +22,20 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/vacation/', {
             templateUrl: 'ajax/templates/vacation/'
         })
+        .when('/albums/', {
+            templateUrl: 'ajax/templates/albums/'
+        })
+        .when('/categories/:categorySlug/', {
+            templateUrl: 'ajax/templates/category/'
+        })
         .when('/blog/posts/post:postId/', {
             templateUrl: 'ajax/templates/post/'
+        })
+        .when('/service_type/:serviceTypeId/services/', {
+            templateUrl: 'ajax/templates/service_type/'
+        })
+        .when('/services/:serviceId/', {
+            templateUrl: 'ajax/templates/service/'
         })
         .when('/login/', {
             templateUrl: 'login/'

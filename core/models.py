@@ -4,6 +4,7 @@ from django.db import models
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
+    slug = models.SlugField(unique=True)
 
 
 class ServiceType(models.Model):
@@ -105,7 +106,6 @@ class PostSubtitle(models.Model):
     post = models.ForeignKey(Post)
     subtitle = models.CharField(max_length=500)
     time_of_adding = models.DateTimeField(auto_now_add=True)
-    time_of_adding = models.DateTimeField()
 
 
 class Album(models.Model):
@@ -117,5 +117,5 @@ class Album(models.Model):
 
 
 class AlbumPhoto(models.Model):
-    image = models.ImageField(upload_to='images/')
+    images = models.ImageField(upload_to='images/')
     album = models.ForeignKey(Album)
