@@ -112,7 +112,7 @@ class Album(models.Model):
     number_of_views = models.IntegerField()
     number_of_photos = models.IntegerField()
     dote_of_event = models.DateTimeField()
-    service_of_photos = models.ForeignKey()
+    service = models.ForeignKey(Service)
 
 
 class AlbumPhoto(models.Model):
