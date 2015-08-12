@@ -116,3 +116,21 @@ class ServiceTypeView(View):
             }for service_type in service_types]
         }
         return JsonResponse(response, safe=False)
+
+
+class AlbumView(View):
+    def get(self, request):
+        albums = Album.objects.all()
+        response = {
+            'code': 0,
+            'message': 'OK',
+            'data': [{
+                'id': album.id,
+                'title': album.title,
+                'number_of_views': album.number_of_views,
+                'number_of_photos': album.number_of_photos,
+                'photos':[{'photo': photo.image.url
+               }for photo in AlbumPhoto.objects.filter(album=album.id)]
+            }for album in albums]
+        }
+        return JsonResponse(response, safe=False)

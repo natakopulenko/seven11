@@ -104,17 +104,18 @@ class PostText(models.Model):
 class PostSubtitle(models.Model):
     post = models.ForeignKey(Post)
     subtitle = models.CharField(max_length=500)
-    time_of_adding = models.DateTimeField(auto_now_add=True)    time_of_adding = models.DateTimeField()
+    time_of_adding = models.DateTimeField(auto_now_add=True)
+    time_of_adding = models.DateTimeField()
 
 
 class Album(models.Model):
-    title = models.CharField(max_length=50)
-    number_of_views = models.IntegerField()
-    number_of_photos = models.IntegerField()
-    dote_of_event = models.DateTimeField()
+    title = models.CharField(max_length=80)
+    number_of_views = models.IntegerField(default=0)
+    number_of_photos = models.IntegerField(default=0)
+    date_of_event = models.DateField()
     service = models.ForeignKey(Service)
 
 
 class AlbumPhoto(models.Model):
-    images = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/')
     album = models.ForeignKey(Album)

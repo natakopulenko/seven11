@@ -32,6 +32,11 @@ def post(request):
     return HttpResponse(template.render())
 
 
+def albums(request):
+    template = get_template('pages/albums.html')
+    return HttpResponse(template.render())
+
+
 def vacation(request):
     template = get_template('pages/vacation.html')
     return HttpResponse(template.render())

@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'', include('social_auth.urls')),
     url(r'^$', 'core.views.home'),
     url(r'^login/', 'core.views.login'),
+    url(r'^ajax/templates/albums/', 'core.views.albums'),
     url(r'^ajax/templates/landing/', 'core.views.landing'),
     url(r'^accounts/profile/', 'core.views.logged'),
     url(r'^ajax/templates/blog/', 'core.views.blog'),
@@ -32,5 +33,6 @@ urlpatterns = [
     url(r'^api/v1/blog/$', BlogView.as_view()),
     url(r'^api/v1/category/$', CategoryView.as_view()),
     url(r'^api/v1/category/(\d+)/$', ServiceTypeView.as_view()),
+    url(r'^api/v1/albums/$', AlbumView.as_view()),
     url(r'^api/v1/posts/(\d+)/$', PostView.as_view()),
 ]
