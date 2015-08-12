@@ -105,7 +105,6 @@ class PostSubtitle(models.Model):
     post = models.ForeignKey(Post)
     subtitle = models.CharField(max_length=500)
     time_of_adding = models.DateTimeField(auto_now_add=True)
-    time_of_adding = models.DateTimeField()
 
 
 class Album(models.Model):
