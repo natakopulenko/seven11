@@ -27,6 +27,9 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/login/', {
             templateUrl: 'login/'
+        })
+        .when('/albums/', {
+            templateUrl: 'ajax/templates/albums/'
         });
 
     // configure html5 to get links working on jsfiddle
