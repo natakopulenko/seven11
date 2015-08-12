@@ -119,7 +119,7 @@ class ServiceTypeView(View):
         return JsonResponse(response, safe=False)
 
 
-class AlbumView(View):
+class AlbumsView(View):
     def get(self, request):
         albums = Album.objects.all()
         response = {
@@ -130,9 +130,28 @@ class AlbumView(View):
                 'title': album.title,
                 'number_of_views': album.number_of_views,
                 'number_of_photos': album.number_of_photos,
+                'date_of_event': album.date_of_event,
+                'service': album.service.title,
+                'photos':[{'photo': photo.image.url
+               }for photo in AlbumPhoto.objects.filter(album=album.id)[0:2]]
+            }for album in albums]
+        }
+        return JsonResponse(response, safe=False)
+
+
+class AlbumView(View):
+     def get(self, request, id_album):
+        album = Album.objects.get(id=id_album)
+        response = {
+            'code': 0,
+            'message': 'OK',
+            'data': {
+                'id': album.id,
+                'title': album.title,
+                'service': album.service.title,
                 'photos':[{'photo': photo.image.url
                }for photo in AlbumPhoto.objects.filter(album=album.id)]
-            }for album in albums]
+            }
         }
         return JsonResponse(response, safe=False)
 

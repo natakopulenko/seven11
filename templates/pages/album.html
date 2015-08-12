@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<div ng-controller="AlbumController">
+    <div class="row">
+        <div class="col s12">
+            <div>Фотозвіт</div>
+            <div ng-repeat = "album in albums">
+             <span>[[album.title]]</span>
+             <span>[[album.service]]</span>
+                <div ng-repeat = "photo in album.photos">
+                    <img src='[[photo.photo]]' width="10%" height="10%"/>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
