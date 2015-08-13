@@ -43,12 +43,14 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/albums/', {
             templateUrl: 'ajax/templates/albums/'
         })
-       .when('/album/:albumID/', {
         .when('/actions/', {
             templateUrl: 'ajax/templates/actions/'
         })
-       .when('/album/', {
+       .when('/album/:albumID/', {
             templateUrl: 'ajax/templates/album/'
+        })
+        .when('/action/:actionId/', {
+            templateUrl: 'ajax/templates/action/'
         });
 
     // configure html5 to get links working on jsfiddle

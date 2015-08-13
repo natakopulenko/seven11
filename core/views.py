@@ -65,3 +65,8 @@ def service(request):
 def actions(request):
     template = get_template('pages/actions.html')
     return HttpResponse(template.render())
+
+
+def action(request):
+    template = get_template('pages/action.html')
+    return HttpResponse(template.render())

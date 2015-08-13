@@ -1,15 +1,16 @@
 {% load staticfiles %}
-<div ng-controller="ActionsController">
+{% load staticfiles %}
+<div ng-controller="ActionController">
     <div class="row">
         <div class="col s12">
-            <h1>Акції</h1>
-
-            <div ng-repeat="action in actions">
-                <div><a href="#!/action/[[action.id]]">[[action.title]]</a></div>
+                <div>[[action.title]]</div>
+                <div>[[action.type]]</div>
                 <div>[[action.place]]</div>
                 <div>[[action.date_from]]</div>
                 <div>[[action.date_to]]</div>
                 <img src='[[action.image]]' width="60%" height="60%"/>
+            <div>[[action.phone_number]]</div>
+            <div>[[action.description]]</div>
             </div>
         </div>
     </div>

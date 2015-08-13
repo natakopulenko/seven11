@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^ajax/templates/service_type/', 'core.views.service_type'),
     url(r'^ajax/templates/service/', 'core.views.service'),
     url(r'^ajax/templates/actions/', 'core.views.actions'),
+    url(r'^ajax/templates/action/', 'core.views.action'),
 
     url(r'^api/v1/blog/$', BlogView.as_view()),
     url(r'^api/v1/category/$', CategoriesView.as_view()),
@@ -43,4 +44,6 @@ urlpatterns = [
     url(r'^api/v1/posts/(\d+)/$', PostView.as_view()),
     url(r'^api/v1/service_type/(\d+)/services/$', ServicesByTypeView.as_view()),
     url(r'^api/v1/services/(\d+)/$', ServiceView.as_view()),
+    url(r'^api/v1/actions/$', ActionsView.as_view()),
+    url(r'^api/v1/action/(\d+)/$', ActionView.as_view()),
 ]

@@ -176,10 +176,6 @@ class CategoryView(View):
 class ServicesByTypeView(View):
     class PostCodes(object):
         @classmethod
-        def invalid_parameter(cls, parameter_name):
-            return HttpResponseBadRequest('parameter {0} is invalid'.format(parameter_name))
-
-        @classmethod
         def ok(cls, type, services):
             return JsonResponse({'code': 0,
                                  'message': 'OK',
@@ -231,3 +227,42 @@ class ServiceView(View):
         service = Service.objects.get(id=service_id)
         return self.PostCodes.ok(service)
 
+
+class ActionsView(View):
+    class GetCodes(object):
+        @classmethod
+        def ok(cls, actions):
+            return JsonResponse({'code': 0,
+                                 'message': 'OK',
+                                 'data': [{
+                                     'id': action.id,
+                                     'title': action.title,
+                                     'place': action.place.title,
+                                     'date_from': action.date_from,
+                                     'date_to': action.date_to,
+                                     'image': action.image.url,
+                                 } for action in actions]})
+    def get(self, request):
+        actions = Action.objects.all()
+        return self.GetCodes.ok(actions)
+
+
+class ActionView(View):
+     def get(self, request, id_action):
+        action = Action.objects.get(id=id_action)
+        response = {
+            'code': 0,
+            'message': 'OK',
+            'data': {
+                'id': action.id,
+                'title': action.title,
+                'type': action.type.title,
+                'place': action.place.title,
+                'date_from': action. date_from,
+                'date_to': action.date_to,
+                'phone_number': action.phone_number,
+                'image': action.image.url,
+                'description': action.description,
+                            }
+        }
+        return JsonResponse(response, safe=False)
