@@ -1,9 +1,12 @@
-app.directive('slider', function() {
-    return {
-        restrict: 'A',
+app.directive("slider", ["$timeout", function($timeout){
+            return {
+                restrict: 'A',
+                link: function(scope, element, attrs) {
+                    element.addClass("slider");
+                    $timeout(function(){
+                    	element.slider();
+                    });
 
-        link: function(scope, element) {
-            angular.element(element).slider();
-        }
-    }
-});
+                }
+            };
+        }]);

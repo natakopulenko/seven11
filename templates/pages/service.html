@@ -11,4 +11,15 @@
     <p>Офіційна інфа: [[ service.information ]]</p>
     <div>Розклад</div>
     <p>[[ service.schedule ]]</p>
+    <div class="row">
+      <div ng-if="service.photos.length" class="col offset-m1 m10">
+    <div class="slider" slider="">
+    <ul class="slides">
+      <li ng-repeat="photo in service.photos">
+            <img src="[[ photo.url ]]"/>
+      </li>
+        </ul>
+        </div>
+        </div>
+    </div>
 </div>

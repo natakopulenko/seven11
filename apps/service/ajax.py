@@ -8,10 +8,6 @@ from core.models import *
 class BlogView(View):
     class PostCodes(object):
         @classmethod
-        def invalid_parameter(cls, parameter_name):
-            return HttpResponseBadRequest('parameter {0} is invalid'.format(parameter_name))
-
-        @classmethod
         def ok(cls, posts):
             return JsonResponse({'code': 0,
                                  'message': 'OK',
@@ -224,10 +220,14 @@ class ServiceView(View):
                                      'schedule': service.schedule,
                                      'tags': [{
                                          'title': tag.title,
-                                     }for tag in service.tags.all()]
+                                     }for tag in service.tags.all()],
+                                     'photos': [{
+                                         'url': photo.photo.url,
+                                     }for photo in ServicePhotos.objects.filter(service=service.id)]
                                  },
                                  })
 
     def get(self, request, service_id):
         service = Service.objects.get(id=service_id)
         return self.PostCodes.ok(service)
+
