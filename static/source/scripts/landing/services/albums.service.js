@@ -7,11 +7,10 @@ angular.module('pages.main').factory('AlbumsService', ['$http', function($http) 
                         callback(response);
                 })
                 .error(function(response) {
-
                 });
         },
-        getAlbum: function(callback) {
-            $http.get('api/v1/album/')
+        getAlbum: function(album_id, callback) {
+            $http.get('api/v1/album/' + album_id)
                 .success(function(response) {
                     if (typeof callback == 'function')
                         callback(response);

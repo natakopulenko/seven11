@@ -132,8 +132,8 @@ class AlbumsView(View):
                 'number_of_photos': album.number_of_photos,
                 'date_of_event': album.date_of_event,
                 'service': album.service.title,
-                'photos':[{'photo': photo.image.url
-               }for photo in AlbumPhoto.objects.filter(album=album.id)[0:2]]
+                'photos': [{'photo': photo.image.url
+                            } for photo in AlbumPhoto.objects.filter(album=album.id)[0:2]]
             }for album in albums]
         }
         return JsonResponse(response, safe=False)
@@ -149,8 +149,8 @@ class AlbumView(View):
                 'id': album.id,
                 'title': album.title,
                 'service': album.service.title,
-                'photos':[{'photo': photo.image.url
-               }for photo in AlbumPhoto.objects.filter(album=album.id)]
+                'photos': [{'photo': photo.image.url
+                            } for photo in AlbumPhoto.objects.filter(album=album.id)]
             }
         }
         return JsonResponse(response, safe=False)

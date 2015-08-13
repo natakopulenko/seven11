@@ -117,5 +117,5 @@ class Album(models.Model):
 
 
 class AlbumPhoto(models.Model):
-    images = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/')
     album = models.ForeignKey(Album)
