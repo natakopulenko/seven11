@@ -43,6 +43,9 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/albums/', {
             templateUrl: 'ajax/templates/albums/'
         })
+        .when('/actions/', {
+            templateUrl: 'ajax/templates/actions/'
+        })
        .when('/album/', {
             templateUrl: 'ajax/templates/album/'
         });

@@ -14,6 +14,7 @@
     <script src="{% static "build/libraries/materialize.min.js" %}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.min.js"></script>
+    <script src="{% static "source/scripts/angular-materialize.js" %}"></script>
 
 
 
@@ -26,7 +27,7 @@
           <li><a ng-href="#!/vacation/">Отдых</a></li>
           <li><a ng-href="#!/blog/">Блог</a></li>
           <li><a ng-href="#!/albums/">Фотоотчеты</a></li>
-          <li><a ng-href="#!/">Акции</a></li>
+          <li><a ng-href="#!/actions/">Акции</a></li>
           <li><a ng-href="#!">Магазин</a></li>
           <li><a ng-href="#!/login/">Ввійти</a></li>
               </ul>
@@ -34,7 +35,7 @@
           <li><a ng-href="#!/vacation/">Отдых</a></li>
           <li><a ng-href="#!/blog/">Блог</a></li>
           <li><a ng-href="#!/albums/">Фотоотчеты</a></li>
-          <li><a ng-href="#!/">Акции</a></li>
+          <li><a ng-href="#!/actions/">Акции</a></li>
           <li><a ng-href="#!">Магазин</a></li>
           <li><a ng-href="#!/login/">Ввійти</a></li>
       </ul>
@@ -60,6 +61,7 @@
 
     {# Directives #}
     <script src="{% static "source/scripts/landing/directives/sidenav.directive.js" %}"></script>
+    <script src="{% static "source/scripts/landing/directives/slider.directive.js" %}"></script>
 
     {# Controllers #}
     <script src="{% static "source/scripts/landing/controllers/application.controller.js" %}"></script>

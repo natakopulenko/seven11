@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^ajax/templates/category/', 'core.views.category'),
     url(r'^ajax/templates/service_type/', 'core.views.service_type'),
     url(r'^ajax/templates/service/', 'core.views.service'),
+    url(r'^ajax/templates/actions/', 'core.views.actions'),
 
     url(r'^api/v1/blog/$', BlogView.as_view()),
     url(r'^api/v1/category/$', CategoriesView.as_view()),
